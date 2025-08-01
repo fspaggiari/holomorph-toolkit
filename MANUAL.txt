@@ -1,4 +1,4 @@
-Manual for GAP Functions on Holomorph and Regular Subgroups
+Manual
 ===========================================================
 
 1. C(n: integer) -> group

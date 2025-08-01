@@ -15,6 +15,7 @@ Includes functions for constructing holomorphs, computing regular subgroups, exp
 holomorph-toolkit/
 ├── LICENSE                  # License file (MIT)
 ├── README.md                # This documentation
+├── manual.txt               # Documentation with a brief description of each function
 ├── holomorph_toolkit.g      # GAP code for holomorphs and gamma functions
 ├── NEOgraph.py              # Example generated Python visualization script
 ├── images/                  # Example outputs
