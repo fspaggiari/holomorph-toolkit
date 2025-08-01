@@ -1,0 +1,79 @@
+Manual for GAP Functions on Holomorph and Regular Subgroups
+===========================================================
+
+1. C(n: integer) -> group
+   - Constructs the cyclic group of order n as a permutation group.
+
+2. abstractHolomorph(G: group) -> group
+   - Returns the abstract holomorph of group G as a semidirect product of Aut(G) and G.
+
+3. permutationalHolomorph(G: group) -> group
+   - Constructs the permutational holomorph of G by taking the normalizer of the right regular representation of G in a symmetric group.
+
+4. allRegularSubgroupsHolomorph(G: group) -> list of groups
+   - Computes all regular subgroups of the permutational holomorph of G by filtering subgroups that act regularly on G.
+
+5. stringToColor(v: any) -> list of integers
+   - Generates an RGB color triple [r,g,b], each in 0..255, from an arbitrary input converted to string. Used for graph vertex coloring.
+
+6. networkXFiltered(graph: list, filt: list of [int,int,int]) -> void
+   - Writes a Python script to plot a graph with NetworkX.
+   - Parameters:
+     * graph: list containing vertices and edges in GAP format [verts, edges]
+     * filt: list of RGB color triples corresponding to vertices
+
+7. NEO(G: group) -> list of groups
+   - Builds the normalizing graph of all regular subgroups of the holomorph of G.
+   - Colors vertices using stringToColor and generates a Python plot.
+   - Returns the list of regular subgroups of G.
+
+8. gammaFunction(G: group, N: subgroup) -> list of triples [int, element, element]
+   - Computes the gamma function of the regular subgroup N of G.
+   - Returns a list of triples [g, nu(g), gamma(g)] indexed by elements of G.
+
+9. gammaEvaluate(gamma: list, x: int) -> element or fail
+   - Given a gamma function, returns gamma(x) for element x in G.
+
+10. nuEvaluate(gamma: list, x: int) -> element or fail
+    - Given a gamma function, returns nu(x) for element x in G.
+
+11. gammaDisplay(gamma: list) -> void
+    - Nicely prints the gamma function showing the image of elements under gamma.
+
+12. gammaImage(gamma: list) -> set of elements
+    - Returns the image of the gamma function as a set of group elements.
+
+13. gammaPreimage(gamma: list, a: element) -> set of int
+    - Returns the preimage of element a under gamma as a set of integers indexing elements of G.
+
+14. gammaKernel(gamma: list) -> set of int
+    - Returns the kernel of the gamma function (elements mapped to the identity element).
+
+15. circ(G: group, gamma: list, x: int, y: int) -> int
+    - Computes the circle operation x ∘ y = nu(y)(x) (group element indices) in G, relative to gamma.
+
+16. circPower(G: group, gamma: list, x: int, n: int) -> int
+    - Computes the n-th power of element x under the circle operation.
+
+17. circPowers(G: group, gamma: list, x: int) -> list of int
+    - Returns the list of all powers of x under the circle operation, indexed by integers.
+
+18. circInverse(G: group, gamma: list, x: int) -> int
+    - Returns the inverse of element x under the circle operation.
+
+19. circOrders(G: group, gamma: list) -> list of [int, int]
+    - Computes and returns the order of each element of G (indexed by int) under the circle operation.
+    - Returns list of pairs [element_index, order].
+
+20. circTable(G: group, gamma: list) -> void
+    - Prints the Cayley table of G with respect to the circle operation.
+
+21. modInverse(x: int, n: int) -> int or fail
+    - Computes the modular inverse of x modulo n if it exists, else fail.
+
+22. positiveRem(x: int, n: int) -> int
+    - Returns the smallest positive remainder of x modulo n.
+
+23. mutualGamma(G: group, N: subgroup, M: subgroup) -> bool
+    - Checks a theorem on mutual normalization of two regular subgroups N and M of G using their gamma functions.
+    - Returns true if the mutual normalization condition holds for all elements.
